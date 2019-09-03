@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Concert+One|PT+Sans|Playfair+Display|Poiret+One">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="content.css">
+    </head>
+    <body>
+        <div id="myContainerOuter" class="my-container-outer">
+            <div class="my-url-bar">
+                <input id="myUrl" type="text" class="my-text" value="https://codeenthusiast.com/" placeholder="enter your url">
+                <button onClick="goToUrl()">Go</button>
+            </div>
+            <div id="myContainer" class="my-container">
+            </div>
+        </div>
+        <div id="myInput" class="my-input">
+            <div class="my-slider-bar">
+                <input id="mySlider" type="range" min="1" max="100" value="50" class="my-slider" id="myRange">
+                <div class="my-zoom-bar">
+                    <button class="my-zoom-button" onClick="setZoom(25)">25%</button>
+                    <button class="my-zoom-button" onClick="setZoom(50)">50%</button>
+                    <button class="my-zoom-button" onClick="setZoom(75)">75%</button>
+                    <button class="my-zoom-button" onClick="setZoom(100)">100%</button>
+                    <div class="my-zoom-button" style="display: inline-block;">
+                        <input type="number" id="myZoom" class="my-slider-text" min="1" max="100" value="50"><span class="my-percent">%</span>
+                    </div>
+                </div>
+                <div id="myOptions"></div>
+            </div>
+        </div>
+        <script src="content.js"></script>
+    </body>
+</html>
