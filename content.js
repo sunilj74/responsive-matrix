@@ -54,7 +54,7 @@ function setupDevice(layout, id, rotated, url){
     <div class="my-device" id="${id}">
         <div class="my-title-bar">
           <div class="my-title">
-            ${layout.title}
+            ${layout.name}
           </div>
           <button class="my-title-button" onClick="navigateView(true,'wv_${id}')">
             <i class="material-icons my-title-icon">arrow_left</i>
@@ -84,86 +84,29 @@ function toggle(event, id){
   }
 }
 
-function setupDevices(allLayouts, url) {
+function setupDevices() {
+    let allLayouts = LAYOUTS;
+    let url = myUrl.value;
     let myInput = document.querySelector("#myOptions");
+    let os = myOS.value;
+    let type = myType.value;
+    let flipped = myFlipped.value;
+
     let sb = []; 
     let content = [];
     for (let i = 0; i < allLayouts.length; i++) {
         let layout = allLayouts[i];
+        if(layout.os != os) continue;
+        if (layout.type != type) continue;
         let id = `device_${i}`;
-        content.push(setupDevice(layout, id, false, url));
-        sb.push(`<div><label class='my-checkbox-label'><input type='checkbox' checked onClick='toggle(event, "${id}")'>${layout.title}</label></div>`);
+        content.push(setupDevice(layout, id, "Y"==flipped, url));
+        sb.push(`<div><label class='my-label'><input type='checkbox' checked onClick='toggle(event, "${id}")'>${layout.name}</label></div>`);
         layout.boxId = id;
         layout.boxIdWeb = "wv_"+id;
-        id = id + "_r";
-        layout.boxIdFlipped = id;
-        layout.boxIdWebFlipped = "wv_" + id;
-        content.push(setupDevice(layout, id, true, url));
-        sb.push(`<div><label class='my-checkbox-label'><input type='checkbox' checked onClick='toggle(event, "${id}")'>${layout.title} (flipped)</label></div>`);
-        sb.push('<br/>');
     }
     document.querySelector("#myContainer").innerHTML = content.join("\n");
     myInput.innerHTML = sb.join("");
 }
-
-var LAYOUTS = [
-  {
-    name: "Galaxy S5",
-    width: 360,
-    height: 640,
-    title: "Galaxy S5"
-  },
-  {
-    name: "Pixel 2",
-    width: 411,
-    height: 731,
-    title: "Pixel 2"
-  },
-  {
-    name: "Pixel 2 XL",
-    width: 411,
-    height: 823,
-    title: "Pixel 2 XL"
-  },
-  {
-    name: "iPhone 5/SE",
-    width: 320,
-    height: 568,
-    title: "iPhone 5/SE"
-  },
-  {
-    name: "iPhone 6/7/8",
-    width: 375,
-    height: 667,
-    title: "iPhone 6/7/8"
-  },
-  {
-    name: "iPhone 6/7/8 Plus",
-    width: 414,
-    height: 736,
-    title: "iPhone 6/7/8 Plus"
-  },
-  {
-    name: "iPhone X",
-    width: 375,
-    height: 812,
-    title: "iPhone X"
-  },
-  {
-    name: "iPad",
-    width: 1024,
-    height: 768,
-    title: "iPad"
-  },
-  {
-    name: "iPad Pro",
-    width: 1366,
-    height: 1024,
-    title: "iPad Pro"
-  }
-];
-
-setupDevices(LAYOUTS, "");
 
 
 let myUrl = document.getElementById("myUrl");
@@ -176,6 +119,21 @@ let myContainerOuter = document.querySelector("#myContainerOuter");
 let myContainer = document.querySelector("#myContainer");
 let myZoom = document.getElementById("myZoom");
 let mySlider = document.getElementById("mySlider");
+let myOS = document.getElementById("myOS");
+let myType = document.getElementById("myType");
+let myFlipped = document.getElementById("myFlipped");
+
+myOS.addEventListener("change", function (event) {
+  setupDevices();
+});
+
+myType.addEventListener("change", function(event) {
+  setupDevices();
+});
+
+myFlipped.addEventListener("change", function(event) {
+  setupDevices();
+});
 
 myZoom.addEventListener("keyup", function(event){
     if(event.keyCode===13){
@@ -192,4 +150,5 @@ mySlider.addEventListener("change", function(event){
 mySlider.addEventListener("input", function (event) {
   myZoom.value = mySlider.value;
 });
+setupDevices();
 adjustScale();

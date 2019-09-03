@@ -1,3 +1,4 @@
+let LAYOUTS = 
 [  
    {  
       "os": "ios",
@@ -333,3 +334,61 @@
       "height": 850
    }
 ]
+
+
+var xLAYOUTS = [
+      {
+            name: "Galaxy S5",
+            width: 360,
+            height: 640,
+            title: "Galaxy S5"
+      },
+      {
+            name: "Pixel 2",
+            width: 411,
+            height: 731,
+            title: "Pixel 2"
+      },
+      {
+            name: "Pixel 2 XL",
+            width: 411,
+            height: 823,
+            title: "Pixel 2 XL"
+      },
+      {
+            name: "iPhone 5/SE",
+            width: 320,
+            height: 568,
+            title: "iPhone 5/SE"
+      },
+      {
+            name: "iPhone 6/7/8",
+            width: 375,
+            height: 667,
+            title: "iPhone 6/7/8"
+      },
+      {
+            name: "iPhone 6/7/8 Plus",
+            width: 414,
+            height: 736,
+            title: "iPhone 6/7/8 Plus"
+      },
+      {
+            name: "iPhone X",
+            width: 375,
+            height: 812,
+            title: "iPhone X"
+      },
+      {
+            name: "iPad",
+            width: 1024,
+            height: 768,
+            title: "iPad"
+      },
+      {
+            name: "iPad Pro",
+            width: 1366,
+            height: 1024,
+            title: "iPad Pro"
+      }
+];

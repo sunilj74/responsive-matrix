@@ -25,10 +25,33 @@
                     <div class="my-zoom-button" style="display: inline-block;">
                         <input type="number" id="myZoom" class="my-slider-text" min="1" max="100" value="50"><span class="my-percent">%</span>
                     </div>
+                    <br /><br />
+                    <div>
+                        <select id="myOS" class="my-mode">
+                            <option value="ios" selected>iOS</option>
+                            <option value="android">Android</option>
+                        </select>
+                    </div>
+                    <br />
+                    <div>
+                        <select id="myType" class="my-mode">
+                            <option value="phone" selected>Phones</option>
+                            <option value="tablet">Tablets</option>
+                        </select>
+                    </div>
+                    <br />
+                    <div>
+                        <select id="myFlipped" class="my-mode">
+                            <option value="N" selected>Normal</option>
+                            <option value="Y">Flipped (Rotated)</option>
+                        </select>
+                    </div>
+                    <br />
                 </div>
                 <div id="myOptions"></div>
             </div>
         </div>
+        <script src="devicelist.js"></script>
         <script src="content.js"></script>
     </body>
 </html>
