@@ -7,7 +7,8 @@
     "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder --win"
+    "win": "electron-builder --win",
+    "mac": "electron-builder --mac"
   },
   "build": {
     "appId": "com.codeenthusiast.responsive-matrix",
