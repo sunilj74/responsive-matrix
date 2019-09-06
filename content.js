@@ -1,9 +1,11 @@
 function goToUrl(){
     let url = myUrl.value;
     let urlLower = url.toLowerCase();
-    if (urlLower.substr(0, 7) != 'http://' && urlLower.substr(0, 8) != 'https://') {
-      url = 'http://' + url;
-      myUrl.value = url;
+    if(url.length>0){
+      if (urlLower.substr(0, 7) != 'http://' && urlLower.substr(0, 8) != 'https://') {
+        url = 'http://' + url;
+        myUrl.value = url;
+      }
     }
     for (let i = 0; i < LAYOUTS.length; i++) {
       let element = document.querySelector("#" + LAYOUTS[i].boxIdWeb);
@@ -21,6 +23,13 @@ function setZoom(zoom){
     mySlider.value = zoom;
     myZoom.value = zoom;
     adjustScale();
+}
+
+function copyUrl(id){
+    let element = document.querySelector("#" + id);
+    if (element != null) {
+      navigator.clipboard.writeText(element.src);
+    }
 }
 
 function navigateView(backward, id){
@@ -56,6 +65,9 @@ function setupDevice(layout, id, rotated, url){
           <div class="my-title">
             ${layout.name}
           </div>
+          <button class="my-title-button" onClick="copyUrl('wv_${id}')">
+            <i class="material-icons my-title-icon">clear_all</i>
+          </button>
           <button class="my-title-button" onClick="navigateView(true,'wv_${id}')">
             <i class="material-icons my-title-icon">arrow_left</i>
           </button>
@@ -96,7 +108,7 @@ function setupDevices() {
     let content = [];
     for (let i = 0; i < allLayouts.length; i++) {
         let layout = allLayouts[i];
-        if(layout.os != os) continue;
+        if(os.length>0 && layout.os != os) continue;
         if (layout.type != type) continue;
         let id = `device_${i}`;
         content.push(setupDevice(layout, id, "Y"==flipped, url));

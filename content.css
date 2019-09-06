@@ -37,7 +37,8 @@ body {
 
 .my-text {
     flex: 1;
-    font-size: 18px;
+    font-family: 'PT Sans';
+    font-family: 14px;
     box-sizing: border-box;
     padding: 5px;
 }
@@ -115,9 +116,12 @@ body {
 }
 
 .my-title-bar {
-    background-color: lightgray;
+    background-color: cadetblue;
     display: flex;
     flex-direction: row;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
 }
 
 .my-title {
@@ -145,12 +149,18 @@ body {
     outline: none;
 }
 
+.my-title-button:active {
+    background-color: yellowgreen;
+    border-radius: 2px;
+}
+
 .my-title-icon {
-    font-size: 50px;
+    font-size: 40px;
 }
 
 .web-view {
     border:2px solid black;
+    display: inline-flex;
 }
 
 .my-label {

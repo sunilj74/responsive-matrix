@@ -8,7 +8,7 @@
     <body>
         <div id="myContainerOuter" class="my-container-outer">
             <div class="my-url-bar">
-                <input id="myUrl" type="text" class="my-text" value="https://codeenthusiast.com/" placeholder="enter your url">
+                <input id="myUrl" type="text" class="my-text" value="" placeholder="enter your url">
                 <button onClick="goToUrl()">Go</button>
             </div>
             <div id="myContainer" class="my-container">
@@ -30,6 +30,7 @@
                         <select id="myOS" class="my-mode">
                             <option value="ios" selected>iOS</option>
                             <option value="android">Android</option>
+                            <option value="">All</option>
                         </select>
                     </div>
                     <br />
@@ -51,6 +52,7 @@
                 <div id="myOptions"></div>
             </div>
         </div>
+        <input type="hidden" id="copyText" value="">
         <script src="devicelist.js"></script>
         <script src="content.js"></script>
     </body>
