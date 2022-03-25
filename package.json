@@ -43,7 +43,7 @@
   "author": "Sunil Joseph",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^6.0.6",
+    "electron": "^13.6.6",
     "electron-builder": "^21.2.0"
   },
   "dependencies": {
